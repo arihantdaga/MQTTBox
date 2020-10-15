@@ -4,4 +4,4 @@ class PlatformConstants {}
 
 PlatformConstants.PLATFORM_TYPE = CommonConstants.PLATFORM_ELECTRON_APP;
 
-export default PlatformConstants;
+module.exports = PlatformConstants;

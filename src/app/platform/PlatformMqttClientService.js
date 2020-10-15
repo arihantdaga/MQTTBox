@@ -1,12 +1,12 @@
-const ipcMain = require('electron').ipcMain;
-var childProcess = require('child_process');
+const {ipcMain} = require('electron');
+const childProcess = require('child_process');
 const {webContents,app} = require('electron');
-import _ from 'lodash';
+const _ = require('lodash');
 
-import CommonConstants from '../utils/CommonConstants';
-import MqttClientConstants from '../utils/MqttClientConstants';
+const CommonConstants = require('../utils/CommonConstants');
+const MqttClientConstants = require('../utils/MqttClientConstants');
 
-class PlatformMqttClientService {  
+class PlatformMqttClientService {
 
     constructor() {
         this.mqttClientConnectionWorkers = {};
@@ -77,4 +77,4 @@ class PlatformMqttClientService {  
     }
 }
 
-export default new PlatformMqttClientService();
+module.exports = new PlatformMqttClientService();

@@ -1,7 +1,7 @@
-import MqttLoadTestWorker from '../workers/MqttLoadTestWorker';
-import MqttLoadConstants from '../utils/MqttLoadConstants';
+const MqttLoadTestWorker = require('../workers/MqttLoadTestWorker');
+const MqttLoadConstants = require('../utils/MqttLoadConstants');
 
-class PlatformMqttLoadWorkerService {  
+class PlatformMqttLoadWorkerService {
     constructor() {
         this.mqttLoadTestWorker = new MqttLoadTestWorker();
         this.mqttLoadTestWorker.addChangeListener(this.processEvents.bind(this));
@@ -19,4 +19,4 @@ class PlatformMqttLoadWorkerService {  
     }
 }
 
-export default new PlatformMqttLoadWorkerService();
+module.exports = new PlatformMqttLoadWorkerService();

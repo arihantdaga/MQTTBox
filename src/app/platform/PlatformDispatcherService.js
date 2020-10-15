@@ -1,17 +1,17 @@
-const ipcRenderer = require('electron').ipcRenderer;
+const {ipcRenderer} = require('electron');
 
-import MqttClientService from '../services/MqttClientService';
-import MqttLoadService from '../services/MqttLoadService';
-import CommonConstants from '../utils/CommonConstants';
+const MqttClientService = require('../services/MqttClientService');
+const MqttLoadService = require('../services/MqttLoadService');
+const CommonConstants = require('../utils/CommonConstants');
 
-class PlatformDispatcherService {  
+class PlatformDispatcherService {
 
     constructor() {
         ipcRenderer.on(CommonConstants.SERVICE_TYPE_MQTT_CLIENTS, this.processEvents.bind(this,CommonConstants.SERVICE_TYPE_MQTT_CLIENTS));
         ipcRenderer.on(CommonConstants.SERVICE_TYPE_MQTT_LOAD, this.processEvents.bind(this,CommonConstants.SERVICE_TYPE_MQTT_LOAD));
     }
 
-    dispatcherAction(action,serviceType) { 
+    dispatcherAction(action,serviceType) {
         if(serviceType == CommonConstants.SERVICE_TYPE_MQTT_CLIENTS) {
             ipcRenderer.send(CommonConstants.SERVICE_TYPE_MQTT_CLIENTS,action);
         } else if(serviceType == CommonConstants.SERVICE_TYPE_MQTT_LOAD) {
@@ -28,4 +28,4 @@ class PlatformDispatcherService {  
     }
 }
 
-export default new PlatformDispatcherService();
+module.exports = new PlatformDispatcherService();

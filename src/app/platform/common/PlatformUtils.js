@@ -1,10 +1,10 @@
-import getmac from 'getmac';
-import request from 'request';
-import compareVersions from 'compare-versions';
+const getmac = require('getmac');
+const request = require('request');
+const compareVersions = require('compare-versions');
 const {shell} = require('electron');
 
-import CommonConstants from '../../utils/CommonConstants';
-import CommonActions from '../../actions/CommonActions';
+const CommonConstants = require('../../utils/CommonConstants');
+const CommonActions = require('../../actions/CommonActions');
 
 class PlatformUtils {
 
@@ -41,4 +41,4 @@ class PlatformUtils {
     }
 }
 
-export default PlatformUtils;
+module.exports = PlatformUtils;

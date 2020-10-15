@@ -50,8 +50,10 @@ const template = [
 ];
 
 function createWindow () {
+    console.log("HERE NOW: ",app.getAppPath());
     const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize;
     win = new BrowserWindow({width, height})
+    win.webContents.openDevTools()
     win.loadURL(`file://${app.getAppPath()}/index.html`);
     //win.webContents.openDevTools();
     win.on('closed', () => {
